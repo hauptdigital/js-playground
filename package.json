@@ -1,7 +1,7 @@
 {
-  "name": "webpack-setup",
+  "name": "js-playground",
   "version": "1.0.0",
-  "description": "",
+  "description": "js-playground",
   "private": true,
   "main": "index.js",
   "dependencies": {},
