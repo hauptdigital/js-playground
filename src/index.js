@@ -48,7 +48,7 @@ async function getRandomNumber() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       const randomNumber = Math.floor(Math.random() * Math.floor(251));
-      if (randomNumber > 151) {
+      if (randomNumber < 152) {
         const imageURL =
           'https://pokeres.bastionbot.org/images/pokemon/' +
           randomNumber +
