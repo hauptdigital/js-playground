@@ -44,7 +44,7 @@ async function runCountdown() {
   run();
 }
 
-async function getRandomNumber() {
+async function getRandomPokemon() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       const randomNumber = Math.floor(Math.random() * Math.floor(251));
@@ -63,14 +63,18 @@ async function getRandomNumber() {
 
 async function run() {
   countdownContainer.innerText = '';
-  const imageURL = await getRandomNumber();
-  const image = document.createElement('img');
-  image.src = imageURL;
-  image.className = 'pokemonImage';
-  countdownContainer.appendChild(image);
-  const imageElement = document.querySelector('.pokemonImage');
-  await waitFor(1000);
-  imageElement.classList.add('zoom');
+  try {
+    const imageURL = await getRandomPokemon();
+    const image = document.createElement('img');
+    image.src = imageURL;
+    image.className = 'pokemonImage';
+    countdownContainer.appendChild(image);
+    const imageElement = document.querySelector('.pokemonImage');
+    await waitFor(1000);
+    imageElement.classList.add('zoom');
+  } catch (error) {
+    countdownContainer.innerText = error.message;
+  }
 }
 
 runCountdown();
